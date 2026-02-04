@@ -3,6 +3,19 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      colors: {
+        // Vintage Classroom Theme
+        cream: {
+          50: "#FFFDF5", // Cream Paper - Nền chính
+          100: "#FEF9E7",
+        },
+        classroom: {
+          board: "#1C1917", // Stone-900 - Màu bảng đen
+          wood: "#78350F", // Amber-900 - Màu gỗ đậm
+          chalk: "#FFFBEB", // Amber-50 - Màu phấn
+          highlight: "#F59E0B", // Amber-500 - Màu nhấn
+        },
+      },
       animation: {
         blob: "blob 7s infinite",
       },

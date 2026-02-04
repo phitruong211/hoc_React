@@ -21,14 +21,14 @@ const Button = ({
   // Variant styles
   const variantStyles = {
     primary:
-      "bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600 hover:from-indigo-700 hover:via-purple-700 hover:to-indigo-700 text-white shadow-lg shadow-indigo-500/50 hover:shadow-xl hover:shadow-purple-500/50",
+      "bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 hover:from-amber-600 hover:via-amber-700 hover:to-amber-800 text-white shadow-lg shadow-amber-500/50 hover:shadow-xl hover:shadow-amber-600/60",
     secondary:
-      "bg-white/10 border-2 border-white/30 text-white hover:bg-white/20 hover:border-white/50 backdrop-blur-md",
+      "bg-white/10 border-2 border-stone-300/30 text-stone-800 hover:bg-stone-50 hover:border-stone-400/50 backdrop-blur-md",
     success:
       "bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 hover:from-emerald-700 hover:via-teal-700 hover:to-cyan-700 text-white shadow-lg shadow-emerald-500/40 hover:shadow-xl hover:shadow-cyan-500/50",
     danger:
       "bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white shadow-lg shadow-red-500/40 hover:shadow-xl hover:shadow-pink-500/50",
-    outline: "border-2 border-indigo-600 text-indigo-600 hover:bg-indigo-50",
+    outline: "border-2 border-amber-600 text-amber-700 hover:bg-amber-50",
   };
 
   // Size styles
@@ -37,10 +37,9 @@ const Button = ({
     md: "px-6 py-3 text-base",
     lg: "px-8 py-4 text-base",
   };
-
   // Base styles
   const baseStyles =
-    "inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500";
+    "inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500";
 
   // Disabled styles
   const disabledStyles =

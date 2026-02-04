@@ -3,9 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 export function HeroSection() {
   const navigate = useNavigate();
-
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-stone-900 via-amber-900 to-stone-800">
       {/* Subtle animated background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div
@@ -21,17 +20,11 @@ export function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Main Content */}
           <div className="text-white space-y-10">
+            {" "}
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-500/20 border border-indigo-400/30 rounded-full backdrop-blur-sm">
-                <div className="w-2 h-2 bg-indigo-400 rounded-full animate-pulse"></div>
-                <span className="text-sm font-medium text-indigo-200">
-                  Giải pháp quản lý đào tạo #1
-                </span>
-              </div>
-
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
                 Hệ Thống Quản Lý
-                <span className="block bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mt-2">
+                <span className="block bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 bg-clip-text text-transparent mt-2">
                   Đào Tạo Chuyên Nghiệp
                 </span>
               </h1>
@@ -45,20 +38,17 @@ export function HeroSection() {
             <div className="flex flex-wrap gap-4">
               <button
                 onClick={() => navigate("/login")}
-                className="inline-flex items-center bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white px-8 py-4 text-base font-semibold shadow-lg shadow-blue-500/50 hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105 active:scale-95 rounded-xl group"
+                className="inline-flex items-center bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 hover:from-amber-600 hover:via-amber-700 hover:to-amber-800 text-white px-8 py-4 text-base font-semibold shadow-lg shadow-amber-500/50 hover:shadow-2xl hover:shadow-amber-600/50 transition-all duration-300 hover:scale-105 active:scale-95 rounded-xl group"
               >
                 Bắt đầu ngay
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
               </button>
-              <button className="inline-flex items-center bg-white/10 border-2 border-white/30 text-white hover:bg-white/20 hover:border-white/50 px-8 py-4 text-base font-semibold rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 backdrop-blur-md">
-                Xem demo
-              </button>
             </div>
             {/* Feature Cards */}
             <div className="grid sm:grid-cols-2 gap-4 pt-4">
-              <div className="group bg-white/5 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:bg-white/10 hover:border-indigo-400/30 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10 cursor-default">
+              <div className="group bg-white/5 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:bg-white/10 hover:border-amber-400/30 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/10 cursor-default">
                 <div className="flex items-start gap-4">
-                  <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl p-3 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <div className="bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl p-3 shadow-lg group-hover:scale-110 transition-transform duration-300">
                     <Shield className="h-6 w-6 text-white" />
                   </div>
                   <div className="flex-1">
@@ -72,9 +62,9 @@ export function HeroSection() {
                 </div>
               </div>
 
-              <div className="group bg-white/5 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:bg-white/10 hover:border-purple-400/30 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 cursor-default">
+              <div className="group bg-white/5 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:bg-white/10 hover:border-amber-400/30 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/10 cursor-default">
                 <div className="flex items-start gap-4">
-                  <div className="bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl p-3 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <div className="bg-gradient-to-br from-amber-600 to-amber-700 rounded-xl p-3 shadow-lg group-hover:scale-110 transition-transform duration-300">
                     <GraduationCap className="h-6 w-6 text-white" />
                   </div>
                   <div className="flex-1">
@@ -88,48 +78,47 @@ export function HeroSection() {
                 </div>
               </div>
             </div>
-          </div>
-
+          </div>{" "}
           {/* Right Column - Stats */}
           <div className="hidden lg:block">
             <div className="relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-3xl blur-2xl opacity-20"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 rounded-3xl blur-2xl opacity-20"></div>
               <div className="relative bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 shadow-2xl">
                 <div className="space-y-8">
                   <div className="space-y-2">
                     <h3 className="text-2xl font-bold text-white">
                       Được tin dùng bởi
                     </h3>
-                    <div className="w-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
+                    <div className="w-16 h-1 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full"></div>
                   </div>
 
                   <div className="grid grid-cols-2 gap-6">
-                    <div className="group text-center bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 border border-white/5 hover:border-indigo-400/30">
-                      <div className="text-5xl font-bold bg-gradient-to-br from-indigo-400 to-purple-400 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                    <div className="group text-center bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 border border-white/5 hover:border-amber-400/30">
+                      <div className="text-5xl font-bold bg-gradient-to-br from-amber-400 to-amber-500 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
                         10K+
                       </div>
                       <div className="text-sm text-gray-400 font-medium">
                         Học viên
                       </div>
                     </div>
-                    <div className="group text-center bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 border border-white/5 hover:border-purple-400/30">
-                      <div className="text-5xl font-bold bg-gradient-to-br from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                    <div className="group text-center bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 border border-white/5 hover:border-amber-400/30">
+                      <div className="text-5xl font-bold bg-gradient-to-br from-amber-500 to-amber-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
                         500+
                       </div>
                       <div className="text-sm text-gray-400 font-medium">
                         Giáo viên
                       </div>
                     </div>
-                    <div className="group text-center bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 border border-white/5 hover:border-pink-400/30">
-                      <div className="text-5xl font-bold bg-gradient-to-br from-pink-400 to-indigo-400 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                    <div className="group text-center bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 border border-white/5 hover:border-amber-400/30">
+                      <div className="text-5xl font-bold bg-gradient-to-br from-amber-600 to-amber-400 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
                         200+
                       </div>
                       <div className="text-sm text-gray-400 font-medium">
                         Lớp học
                       </div>
                     </div>
-                    <div className="group text-center bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 border border-white/5 hover:border-indigo-400/30">
-                      <div className="text-5xl font-bold bg-gradient-to-br from-indigo-400 to-pink-400 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                    <div className="group text-center bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 border border-white/5 hover:border-amber-400/30">
+                      <div className="text-5xl font-bold bg-gradient-to-br from-amber-400 to-amber-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
                         99.9%
                       </div>
                       <div className="text-sm text-gray-400 font-medium">
@@ -142,7 +131,7 @@ export function HeroSection() {
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <svg
-                          className="w-5 h-5 text-indigo-400"
+                          className="w-5 h-5 text-amber-400"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                         >

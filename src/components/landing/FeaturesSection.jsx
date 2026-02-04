@@ -30,7 +30,7 @@ const features = [
     description:
       "Tự động xếp lịch học, tránh trùng lặp và tối ưu hóa thời gian",
     gradient: "from-green-500 to-emerald-500",
-  },  
+  },
   {
     icon: BarChart3,
     title: "Thống kê & Báo cáo",
@@ -65,7 +65,7 @@ const features = [
 
 export function FeaturesSection() {
   return (
-    <section className="relative py-24 bg-gradient-to-b from-white via-gray-50/50 to-white overflow-hidden">
+    <section className="relative py-24 bg-gradient-to-b from-white via-cream-50 to-white overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03]">
         <div
@@ -79,18 +79,18 @@ export function FeaturesSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center space-y-5 mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-100 rounded-full">
-            <span className="text-sm font-semibold text-indigo-600">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-100 rounded-full">
+            <span className="text-sm font-semibold text-amber-600">
               Tính năng nổi bật
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-stone-900 leading-tight tracking-tight">
             Giải pháp toàn diện cho
-            <span className="block bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mt-2">
+            <span className="block bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 bg-clip-text text-transparent mt-2">
               Quản lý Đào tạo
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-stone-600 leading-relaxed max-w-3xl mx-auto">
             Hệ thống cung cấp đầy đủ các công cụ cần thiết để quản lý toàn bộ
             quy trình đào tạo một cách hiệu quả
           </p>
@@ -102,7 +102,7 @@ export function FeaturesSection() {
             return (
               <div
                 key={index}
-                className="group bg-white rounded-2xl p-6 border border-gray-200 hover:border-transparent hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 cursor-default"
+                className="group bg-white rounded-2xl p-6 border border-stone-200 hover:border-transparent hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 cursor-default"
               >
                 <div className="space-y-4">
                   <div
@@ -111,10 +111,10 @@ export function FeaturesSection() {
                     <Icon className="h-6 w-6 text-white" />
                   </div>
                   <div className="space-y-2">
-                    <h3 className="text-xl font-bold text-gray-900 leading-snug">
+                    <h3 className="text-xl font-bold text-stone-900 leading-snug">
                       {feature.title}
                     </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-sm text-stone-600 leading-relaxed">
                       {feature.description}
                     </p>
                   </div>
@@ -125,7 +125,7 @@ export function FeaturesSection() {
         </div>{" "}
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
-          <button className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/40 hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105 active:scale-95">
+          <button className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 hover:from-amber-600 hover:via-amber-700 hover:to-amber-800 text-white font-semibold rounded-xl shadow-lg shadow-amber-500/40 hover:shadow-2xl hover:shadow-amber-600/50 transition-all duration-300 hover:scale-105 active:scale-95">
             Khám phá tất cả tính năng
             <svg
               className="w-5 h-5"

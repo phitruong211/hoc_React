@@ -10,16 +10,17 @@ export default function LoginPage() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-  }); 
+  });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [errors, setErrors] = useState({
     email: "",
     password: "",
   });
+
   // Validate email format
   const validateEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailRegex.test(email);
   };
 
@@ -75,23 +76,45 @@ export default function LoginPage() {
     if (!formData.password) {
       setErrors((prev) => ({ ...prev, password: "Vui lòng nhập mật khẩu" }));
       return;
-    }
-
-    // Set loading state
+    } // Set loading state
     setIsLoading(true);
 
     try {
       // Simulate API call (replace this with actual API call later)
       await new Promise((resolve) => setTimeout(resolve, 1500));
 
+      // Mock user database - CHECK EMAIL FIRST
+      let userRole = null;
+      let userName = "";
+
+      // Check if email exists in system
+      if (formData.email === "student@gmail.com") {
+        userRole = "student";
+        userName = "Nguyễn Văn Học Trò";
+      } else if (formData.email === "teacher@gmail.com") {
+        userRole = "teacher";
+        userName = "Nguyễn Thị Giáo Viên";
+      } else if (formData.email === "admin@gmail.com") {
+        userRole = "admin";
+        userName = "Nguyễn Văn Quản Trị";
+      } else {
+        // Email not found - throw error and stop
+        throw new Error("Email không tồn tại trong hệ thống");
+      }
+
+      // Only check password if email exists
+      if (formData.password !== "123456") {
+        throw new Error("Mật khẩu không chính xác");
+      }
+
       // Mock response from server
       const mockResponse = {
         token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
         user: {
-          id: 1,
-          name: "Nguyen Van A",
+          id: userRole === "admin" ? 1 : userRole === "teacher" ? 2 : 3,
+          name: userName,
           email: formData.email,
-          role: "teacher", // Backend decides: 'admin', 'teacher', or 'student'
+          role: userRole,
         },
       };
 
@@ -108,22 +131,24 @@ export default function LoginPage() {
           navigate("/teacher/dashboard");
           break;
         case "student":
-          navigate("/student/profile");
+          navigate("/student/home");
           break;
         default:
           setError("Vai trò người dùng không hợp lệ");
       }
-    } catch {
-      setError("Email hoặc mật khẩu không chính xác. Vui lòng thử lại.");
+    } catch (error) {
+      setError(
+        error.message ||
+          "Email hoặc mật khẩu không chính xác. Vui lòng thử lại."
+      );
     } finally {
       setIsLoading(false);
     }
   };
-
   return (
     <div className="min-h-screen flex">
       {/* Left Side - Image & Quote */}
-      <div className="hidden lg:flex lg:w-1/2 relative bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900 overflow-hidden">
+      <div className="hidden lg:flex lg:w-1/2 relative bg-gradient-to-br from-stone-900 via-amber-900 to-stone-800 overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img
@@ -131,7 +156,7 @@ export default function LoginPage() {
             alt="Library"
             className="w-full h-full object-cover opacity-30"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/90 via-purple-900/90 to-slate-900/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-stone-900/90 via-amber-900/90 to-stone-800/90"></div>
         </div>
 
         {/* Content */}
@@ -139,12 +164,12 @@ export default function LoginPage() {
           <div className="max-w-lg space-y-8">
             {/* Logo */}
             <div className="flex items-center gap-4">
-              <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl p-4 shadow-2xl">
+              <div className="bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl p-4 shadow-2xl">
                 <GraduationCap className="h-12 w-12 text-white" />
               </div>
               <div>
                 <h1 className="text-3xl font-bold">Quản lý Đào tạo</h1>
-                <p className="text-indigo-200">Education Management System</p>
+                <p className="text-amber-200">Education Management System</p>
               </div>
             </div>
 
@@ -152,7 +177,7 @@ export default function LoginPage() {
             <div className="space-y-6">
               <div className="relative">
                 <svg
-                  className="absolute -top-4 -left-4 h-12 w-12 text-indigo-400 opacity-50"
+                  className="absolute -top-4 -left-4 h-12 w-12 text-amber-400 opacity-50"
                   fill="currentColor"
                   viewBox="0 0 32 32"
                 >
@@ -164,23 +189,23 @@ export default function LoginPage() {
                 </blockquote>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-12 h-1 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full"></div>
-                <p className="text-lg text-indigo-200">Nelson Mandela</p>
+                <div className="w-12 h-1 bg-gradient-to-r from-amber-400 to-amber-500 rounded-full"></div>
+                <p className="text-lg text-amber-200">Nelson Mandela</p>
               </div>
             </div>
 
             {/* Features */}
             <div className="grid grid-cols-3 gap-4 pt-8">
               <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-                <div className="text-3xl font-bold text-indigo-300">10K+</div>
+                <div className="text-3xl font-bold text-amber-300">10K+</div>
                 <div className="text-sm text-gray-300 mt-1">Học viên</div>
               </div>
               <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-                <div className="text-3xl font-bold text-purple-300">500+</div>
+                <div className="text-3xl font-bold text-amber-400">500+</div>
                 <div className="text-sm text-gray-300 mt-1">Giáo viên</div>
               </div>
               <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-                <div className="text-3xl font-bold text-pink-300">200+</div>
+                <div className="text-3xl font-bold text-amber-300">200+</div>
                 <div className="text-sm text-gray-300 mt-1">Khóa học</div>
               </div>
             </div>
@@ -188,33 +213,33 @@ export default function LoginPage() {
         </div>
 
         {/* Decorative Elements */}
-        <div className="absolute top-20 right-20 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute bottom-20 left-20 w-72 h-72 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-20 right-20 w-72 h-72 bg-amber-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div className="absolute bottom-20 left-20 w-72 h-72 bg-amber-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
       </div>
 
       {/* Right Side - Login Form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-gradient-to-br from-gray-50 to-gray-100">
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-cream-50">
         <div className="w-full max-w-md space-y-8">
           {/* Mobile Logo */}
           <div className="lg:hidden text-center">
             <div className="inline-flex items-center gap-3 mb-6">
-              <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl p-3">
+              <div className="bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl p-3">
                 <GraduationCap className="h-8 w-8 text-white" />
               </div>
               <div className="text-left">
-                <h1 className="text-2xl font-bold text-gray-900">
+                <h1 className="text-2xl font-bold text-stone-900">
                   Quản lý Đào tạo
                 </h1>
-                <p className="text-sm text-gray-600">Education Management</p>
+                <p className="text-sm text-stone-600">Education Management</p>
               </div>
             </div>
           </div>
           {/* Header */}
           <div className="text-center lg:text-left">
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+            <h2 className="text-3xl font-bold text-stone-900 mb-2">
               Chào mừng trở lại!
             </h2>
-            <p className="text-gray-600">
+            <p className="text-stone-600">
               Đăng nhập để tiếp tục sử dụng hệ thống
             </p>
           </div>{" "}
@@ -260,7 +285,7 @@ export default function LoginPage() {
             <div className="flex items-center justify-end">
               <button
                 type="button"
-                className="text-sm font-medium text-indigo-600 hover:text-indigo-500 transition-colors duration-200"
+                className="text-sm font-medium text-amber-600 hover:text-amber-700 transition-colors duration-200"
               >
                 Quên mật khẩu?
               </button>
@@ -291,45 +316,44 @@ export default function LoginPage() {
               }
               iconPosition="right"
             >
+              {" "}
               {isLoading ? "Đang đăng nhập..." : "Đăng nhập"}
             </Button>
-          </form>{" "}
+          </form>
+          {/* Register Button */}
+          <Button
+            type="button"
+            variant="outline"
+            size="lg"
+            fullWidth
+            onClick={() => navigate("/register")}
+            icon={
+              <svg
+                className="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+                />
+              </svg>
+            }
+            iconPosition="left"
+          >
+            Đăng ký tài khoản
+          </Button>
           {/* Divider */}
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-300"></div>
-            </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-gradient-to-br from-gray-50 to-gray-100 text-gray-500">
-                Demo Accounts
-              </span>
-            </div>
-          </div>
-          {/* Demo Accounts Info */}
-          <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-4">
-            <h3 className="text-sm font-semibold text-indigo-900 mb-3">
-              🎯 Tài khoản demo:
-            </h3>
-            <div className="space-y-2 text-xs text-indigo-700">
-              <div className="flex items-center justify-between p-2 bg-white/60 rounded-lg">
-                <span className="font-medium">Admin:</span>
-                <code className="text-indigo-600">admin@edu.vn</code>
-              </div>
-              <div className="flex items-center justify-between p-2 bg-white/60 rounded-lg">
-                <span className="font-medium">Giáo viên:</span>
-                <code className="text-indigo-600">teacher@edu.vn</code>
-              </div>
-              <div className="flex items-center justify-between p-2 bg-white/60 rounded-lg">
-                <span className="font-medium">Học viên:</span>
-                <code className="text-indigo-600">student@edu.vn</code>
-              </div>
-              <p className="text-center text-indigo-600 mt-2 italic">
-                Mật khẩu: <code className="font-semibold">123456</code>
-              </p>
+              <div className="w-full border-t border-stone-300"></div>
             </div>
           </div>
           {/* Footer */}
-          <div className="text-center text-sm text-gray-600">
+          <div className="text-center text-sm text-stone-600">
             <p>© 2026 Quản lý Đào tạo. All rights reserved.</p>
           </div>
         </div>
